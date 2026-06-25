@@ -152,7 +152,6 @@ export default function StudentDashboardPage() {
             <p className="font-display text-lg mb-4">Expense history</p>
             <ExpenseList expenses={data.expenses} onDeleted={handleExpenseDeleted} />
           </Panel>
-          </Panel>
         </ErrorBoundary>
       )}
 
