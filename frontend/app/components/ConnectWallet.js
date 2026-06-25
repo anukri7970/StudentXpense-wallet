@@ -63,6 +63,21 @@ export default function ConnectWallet() {
     }
   };
 
+  const handleDisconnect = async () => {
+    setLoading(true);
+    setError('');
+    try {
+      await api.post('/users/disconnect-wallet');
+      setWalletKey('');
+      setVerified(false);
+      refresh();
+    } catch (err) {
+      setError('Failed to disconnect wallet');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   if (!freighterConnected) {
     return (
       <Panel className="p-6 bg-slate-800/50 border-dashed border-slate-700">
@@ -75,13 +90,24 @@ export default function ConnectWallet() {
   return (
     <Panel className="p-6 bg-slate-800/50">
       <div className="flex flex-col gap-2">
-        <p className="text-sm text-slate-muted">External Wallet</p>
+        <div className="flex justify-between items-center">
+          <p className="text-sm text-slate-muted">External Wallet</p>
+          {walletKey && (
+            <button
+              onClick={handleDisconnect}
+              disabled={loading}
+              className="text-coral text-xs hover:underline disabled:opacity-50"
+            >
+              Disconnect
+            </button>
+          )}
+        </div>
         {!walletKey ? (
           <div>
             <button 
               onClick={handleConnect} 
               disabled={loading}
-              className="bg-mint text-slate-950 font-medium px-4 py-2 rounded text-sm hover:bg-mint/90 transition-colors disabled:opacity-50"
+              className="bg-mint text-slate-950 font-medium px-4 py-2 rounded text-sm hover:bg-mint/90 transition-colors disabled:opacity-50 w-full"
             >
               {loading ? 'Connecting...' : 'Connect Freighter Wallet'}
             </button>
@@ -89,14 +115,33 @@ export default function ConnectWallet() {
           </div>
         ) : (
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <div className="w-2 h-2 rounded-full bg-mint"></div>
-              <p className="text-sm font-medium">Connected</p>
-              {verified && <span className="bg-mint/20 text-mint text-[10px] px-2 py-0.5 rounded-full uppercase font-bold tracking-wider ml-2">Verified Owner</span>}
+            <div className="flex justify-between items-start mb-2">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-2 h-2 rounded-full bg-mint"></div>
+                  <p className="text-sm font-medium">Connected</p>
+                  {verified && <span className="bg-mint/20 text-mint text-[10px] px-2 py-0.5 rounded-full uppercase font-bold tracking-wider ml-2">Verified Owner</span>}
+                </div>
+                <p className="text-xs text-slate-muted font-mono truncate" title={walletKey}>
+                  {walletKey.slice(0, 8)}...{walletKey.slice(-8)}
+                </p>
+              </div>
             </div>
-            <p className="text-xs text-slate-muted font-mono truncate" title={walletKey}>
-              {walletKey.slice(0, 8)}...{walletKey.slice(-8)}
-            </p>
+            
+            <div className="mt-4 p-3 bg-slate-900 rounded border border-slate-700/50">
+              <p className="text-xs text-slate-muted mb-1">Available Balance</p>
+              <p className="text-xl font-display text-mint">
+                {user?.liveXlmBalance !== null && user?.liveXlmBalance !== undefined 
+                  ? `${Number(user.liveXlmBalance).toLocaleString()} XLM` 
+                  : '0 XLM'}
+              </p>
+              {(user?.liveXlmBalance === null || user?.liveXlmBalance === undefined) && (
+                <p className="text-[10px] text-coral mt-1">
+                  Testnet account not found or unfunded. Please fund it via Friendbot to start transacting.
+                </p>
+              )}
+            </div>
+            {error && <p className="text-coral text-xs mt-2">{error}</p>}
           </div>
         )}
       </div>
