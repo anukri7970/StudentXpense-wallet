@@ -75,7 +75,7 @@ export default function ParentDashboardPage() {
           <div className="grid md:grid-cols-4 gap-5 mb-8">
             <Panel className="p-6 bg-slate-800/80 border-mint/20">
               <p className="text-sm text-slate-muted mb-1 text-mint">Live balance</p>
-              <p className="font-display text-3xl tabular">{data.liveXlmBalance !== null ? data.liveXlmBalance.toLocaleString() : '--'} XLM</p>
+              <p className="font-display text-3xl tabular">{typeof data.liveXlmBalance === 'number' ? data.liveXlmBalance.toLocaleString() : '--'} XLM</p>
             </Panel>
             <Panel className="p-6">
               <p className="text-sm text-slate-muted mb-1">Total sent</p>
