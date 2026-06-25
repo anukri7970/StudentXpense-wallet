@@ -15,9 +15,9 @@ function truncateHash(hash) {
 }
 
 const typeLabels = {
-  parent_deposit: 'Sent to student',
-  student_release: 'Released to wallet',
-  tuition_payment: 'Tuition payment',
+  parent_deposit: '📥 Received from parent',
+  student_release: '🔓 Released to wallet',
+  tuition_payment: '🎓 Tuition paid',
 };
 
 export default function TransactionList({ transactions, emptyTitle, emptyDescription }) {
@@ -31,28 +31,37 @@ export default function TransactionList({ transactions, emptyTitle, emptyDescrip
         <thead>
           <tr className="text-left text-slate-faint border-b border-ink-border">
             <th className="py-2.5 pr-4 font-medium">Type</th>
+            <th className="py-2.5 pr-4 font-medium">From → To</th>
             <th className="py-2.5 pr-4 font-medium">Amount</th>
             <th className="py-2.5 pr-4 font-medium">Date</th>
-            <th className="py-2.5 pr-4 font-medium">Tx hash</th>
+            <th className="py-2.5 pr-4 font-medium">Verify on-chain</th>
           </tr>
         </thead>
         <tbody>
           {transactions.map((t) => (
             <tr key={t._id} className="border-b border-ink-border/60 last:border-0">
               <td className="py-3 pr-4 text-parchment">{typeLabels[t.type] || t.type}</td>
+              <td className="py-3 pr-4 text-slate-muted text-xs">
+                {t.fromUser?.name || '—'} → {t.toUser?.name || '—'}
+              </td>
               <td className="py-3 pr-4 tabular text-parchment">
                 {t.amount.toLocaleString()} {t.assetCode}
               </td>
               <td className="py-3 pr-4 text-slate-muted tabular">{formatDate(t.createdAt)}</td>
               <td className="py-3 pr-4">
-                <a
-                  href={`https://stellar.expert/explorer/testnet/tx/${t.txHash}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="tabular text-signal-gold hover:underline"
-                >
-                  {truncateHash(t.txHash)}
-                </a>
+                {t.txHash ? (
+                  <a
+                    href={`https://stellar.expert/explorer/testnet/tx/${t.txHash}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="tabular text-signal-gold hover:underline flex items-center gap-1"
+                    title="View on Stellar Testnet Explorer"
+                  >
+                    {truncateHash(t.txHash)} ↗
+                  </a>
+                ) : (
+                  <span className="text-slate-muted">—</span>
+                )}
               </td>
             </tr>
           ))}

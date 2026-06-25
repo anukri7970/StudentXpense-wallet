@@ -40,7 +40,15 @@ export default function ParentDashboardPage() {
   }, [ready, fetchDashboard]);
 
   const handleSent = (result) => {
-    setToast({ message: `Sent successfully. Escrow balance: ${result.escrowBalance} stroops.`, tone: 'mint' });
+    const txHash = result?.transaction?.txHash;
+    const explorerUrl = txHash ? `https://stellar.expert/explorer/testnet/tx/${txHash}` : null;
+    setToast({
+      message: txHash
+        ? `Funds sent! View on Stellar Explorer ↗`
+        : 'Funds sent successfully!',
+      tone: 'mint',
+      href: explorerUrl,
+    });
     fetchDashboard();
     refresh();
   };

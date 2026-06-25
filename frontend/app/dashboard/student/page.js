@@ -16,12 +16,14 @@ import AiAdvisorPanel from '../../components/AiAdvisorPanel';
 import PayTuitionForm from '../../components/PayTuitionForm';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import ConnectWallet from '../../components/ConnectWallet';
+import TransactionList from '../../components/TransactionList';
 
 export default function StudentDashboardPage() {
   const { ready } = useRequireRole('student');
   const { refresh } = useAuth();
   const [data, setData] = useState(null);
   const [universities, setUniversities] = useState([]);
+  const [incomingTxns, setIncomingTxns] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [toast, setToast] = useState(null);
@@ -30,12 +32,14 @@ export default function StudentDashboardPage() {
     setLoading(true);
     setError('');
     try {
-      const [{ data: dashboard }, { data: uniList }] = await Promise.all([
+      const [{ data: dashboard }, { data: uniList }, { data: txList }] = await Promise.all([
         api.get('/users/student-dashboard'),
         api.get('/users/universities'),
+        api.get('/users/student-transactions'),
       ]);
       setData(dashboard);
       setUniversities(uniList);
+      setIncomingTxns(txList);
     } catch (err) {
       setError(getErrorMessage(err));
     } finally {
@@ -56,8 +60,14 @@ export default function StudentDashboardPage() {
     setData((prev) => ({ ...prev, expenses: prev.expenses.filter((e) => e._id !== id) }));
   };
 
-  const handleTuitionPaid = () => {
-    setToast({ message: 'Tuition payment sent.', tone: 'mint' });
+  const handleTuitionPaid = (result) => {
+    const txHash = result?.transaction?.txHash;
+    const explorerUrl = txHash ? `https://stellar.expert/explorer/testnet/tx/${txHash}` : null;
+    setToast({
+      message: txHash ? 'Tuition paid! View on Stellar Explorer ↗' : 'Tuition payment sent.',
+      tone: 'mint',
+      href: explorerUrl,
+    });
     fetchDashboard();
     refresh();
   };
@@ -129,9 +139,19 @@ export default function StudentDashboardPage() {
             <AiAdvisorPanel hasExpenses={data.expenses.length > 0} />
           </div>
 
+          <Panel className="p-6 mb-5">
+            <p className="font-display text-lg mb-4">Wallet transaction history</p>
+            <TransactionList
+              transactions={incomingTxns}
+              emptyTitle="No wallet transactions yet"
+              emptyDescription="Transactions from your parent or to university will appear here once complete."
+            />
+          </Panel>
+
           <Panel className="p-6">
             <p className="font-display text-lg mb-4">Expense history</p>
             <ExpenseList expenses={data.expenses} onDeleted={handleExpenseDeleted} />
+          </Panel>
           </Panel>
         </ErrorBoundary>
       )}

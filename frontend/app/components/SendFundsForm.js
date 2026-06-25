@@ -10,6 +10,8 @@ import Input from './ui/Input';
 import Select from './ui/Select';
 import Button from './ui/Button';
 
+const TESTNET_PASSPHRASE = 'Test SDF Network ; September 2015';
+
 export default function SendFundsForm({ students, onSuccess }) {
   const [submitError, setSubmitError] = useState('');
   const {
@@ -29,9 +31,15 @@ export default function SendFundsForm({ students, onSuccess }) {
       
       let signedXdr;
       try {
-        signedXdr = await signTransaction(buildData.xdr, { network: 'TESTNET' });
+        // freighter-api v6+: use networkPassphrase, NOT network:'TESTNET'
+        const result = await signTransaction(buildData.xdr, {
+          networkPassphrase: TESTNET_PASSPHRASE,
+        });
+        // v6 returns { signedTxXdr, signerAddress }, v5 returns the string directly
+        signedXdr = (typeof result === 'string') ? result : result?.signedTxXdr;
+        if (!signedXdr) throw new Error('No signed XDR returned. Please ensure Freighter is set to Testnet.');
       } catch (signErr) {
-        setSubmitError('Transaction signing was cancelled or failed.');
+        setSubmitError(signErr.message || 'Transaction signing was cancelled or failed.');
         return;
       }
 

@@ -184,4 +184,29 @@ router.get('/university-dashboard', authenticate, requireRole('university'), asy
   }
 });
 
+/**
+ * Returns all transactions relevant to the logged-in student:
+ * - incoming deposits from parents (parent_deposit where toUser = student)
+ * - outgoing tuition payments (tuition_payment where fromUser = student)
+ */
+router.get('/student-transactions', authenticate, requireRole('student'), async (req, res, next) => {
+  try {
+    const transactions = await Transaction.find({
+      $or: [
+        { toUser: req.user.id, type: 'parent_deposit' },
+        { fromUser: req.user.id, type: 'tuition_payment' },
+      ],
+    })
+      .sort({ createdAt: -1 })
+      .limit(100)
+      .populate('fromUser', 'name email role')
+      .populate('toUser', 'name email role');
+
+    return res.json(transactions);
+  } catch (err) {
+    return next(err);
+  }
+});
+
 module.exports = router;
+
