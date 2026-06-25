@@ -30,18 +30,25 @@ function encryptSecret(plaintext) {
 }
 
 function decryptSecret(payload) {
-  const key = getDerivedKey();
-  const raw = Buffer.from(payload, 'base64');
+  try {
+    const key = getDerivedKey();
+    const raw = Buffer.from(payload, 'base64');
 
-  const iv = raw.subarray(0, IV_LENGTH);
-  const authTag = raw.subarray(IV_LENGTH, IV_LENGTH + 16);
-  const encrypted = raw.subarray(IV_LENGTH + 16);
+    const iv = raw.subarray(0, IV_LENGTH);
+    const authTag = raw.subarray(IV_LENGTH, IV_LENGTH + 16);
+    const encrypted = raw.subarray(IV_LENGTH + 16);
 
-  const decipher = crypto.createDecipheriv(ALGORITHM, key, iv);
-  decipher.setAuthTag(authTag);
+    const decipher = crypto.createDecipheriv(ALGORITHM, key, iv);
+    decipher.setAuthTag(authTag);
 
-  const decrypted = Buffer.concat([decipher.update(encrypted), decipher.final()]);
-  return decrypted.toString('utf8');
+    const decrypted = Buffer.concat([decipher.update(encrypted), decipher.final()]);
+    return decrypted.toString('utf8');
+  } catch (err) {
+    const wrapped = new Error('Failed to decrypt wallet secret. This usually happens if the JWT_SECRET environment variable was changed after the account was created.');
+    wrapped.publicMessage = wrapped.message;
+    wrapped.statusCode = 500;
+    throw wrapped;
+  }
 }
 
 module.exports = { encryptSecret, decryptSecret };
