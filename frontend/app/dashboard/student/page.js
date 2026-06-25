@@ -120,7 +120,7 @@ export default function StudentDashboardPage() {
               <AddExpenseForm onSuccess={handleExpenseAdded} />
             </div>
             <div className="flex flex-col gap-5">
-              <ConnectWallet />
+              <ConnectWallet onWalletChange={fetchDashboard} />
               <PayTuitionForm universities={universities} onSuccess={handleTuitionPaid} />
             </div>
           </div>

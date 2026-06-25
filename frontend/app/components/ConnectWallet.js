@@ -6,7 +6,7 @@ import { useAuth } from '../lib/AuthContext';
 import api from '../lib/api';
 import Panel from './ui/Panel';
 
-export default function ConnectWallet() {
+export default function ConnectWallet({ onWalletChange }) {
   const [freighterConnected, setFreighterConnected] = useState(false);
   const [walletKey, setWalletKey] = useState('');
   const [loading, setLoading] = useState(false);
@@ -54,6 +54,7 @@ export default function ConnectWallet() {
       setWalletKey(publicKey);
       setVerified(true);
       refresh(); // Refresh user data to get the newly connected wallet everywhere
+      if (onWalletChange) onWalletChange();
       
     } catch (err) {
       setError(err.message || 'Failed to connect wallet');
@@ -71,6 +72,7 @@ export default function ConnectWallet() {
       setWalletKey('');
       setVerified(false);
       refresh();
+      if (onWalletChange) onWalletChange();
     } catch (err) {
       setError('Failed to disconnect wallet');
     } finally {

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import api, { getErrorMessage } from '../../lib/api';
 import { useRequireRole } from '../../lib/useRequireRole';
+import { useAuth } from '../../lib/AuthContext';
 import DashboardShell from '../../components/DashboardShell';
 import Panel from '../../components/ui/Panel';
 import { PanelSkeleton } from '../../components/ui/Feedback';
@@ -15,6 +16,7 @@ import ConnectWallet from '../../components/ConnectWallet';
 
 export default function ParentDashboardPage() {
   const { ready } = useRequireRole('parent');
+  const { refresh } = useAuth();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -40,6 +42,7 @@ export default function ParentDashboardPage() {
   const handleSent = (result) => {
     setToast({ message: `Sent successfully. Escrow balance: ${result.escrowBalance} stroops.`, tone: 'mint' });
     fetchDashboard();
+    refresh();
   };
 
   const handleLinked = () => {
@@ -97,7 +100,7 @@ export default function ParentDashboardPage() {
             </div>
             <div className="flex flex-col gap-5">
               <LinkStudentForm onSuccess={handleLinked} />
-              <ConnectWallet />
+              <ConnectWallet onWalletChange={fetchDashboard} />
             </div>
           </div>
 
