@@ -83,10 +83,18 @@ router.get('/parent-dashboard', authenticate, requireRole('parent'), async (req,
       .filter((t) => t.status === 'success')
       .reduce((sum, t) => sum + t.amount, 0);
 
+    let liveBalance = null;
+    try {
+      liveBalance = await getXlmBalance(parent.stellarPublicKey);
+    } catch (e) {
+      liveBalance = null;
+    }
+
     return res.json({
       studentsLinked: parent.linkedStudents.map((s) => s.toSafeJSON()),
       totalSent,
       transactions,
+      liveXlmBalance: liveBalance,
     });
   } catch (err) {
     return next(err);

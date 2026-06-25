@@ -66,6 +66,7 @@ router.post('/deposit', authenticate, requireRole('parent'), async (req, res, ne
       const wrapped = new Error(`Deposit contract call failed: ${contractErr.message}`);
       wrapped.category = 'contract';
       wrapped.statusCode = 502;
+      wrapped.publicMessage = wrapped.message;
       return next(wrapped);
     }
 
@@ -121,6 +122,7 @@ router.post('/release', authenticate, requireRole('student'), async (req, res, n
       const wrapped = new Error(`Release contract call failed: ${contractErr.message}`);
       wrapped.category = 'contract';
       wrapped.statusCode = 502;
+      wrapped.publicMessage = wrapped.message;
       return next(wrapped);
     }
 
@@ -191,6 +193,7 @@ router.post('/pay-tuition', authenticate, requireRole('student'), async (req, re
       const wrapped = new Error(`Tuition payment failed: ${paymentErr.message}`);
       wrapped.category = 'wallet';
       wrapped.statusCode = 502;
+      wrapped.publicMessage = wrapped.message;
       return next(wrapped);
     }
 

@@ -11,6 +11,7 @@ import SendFundsForm from '../../components/SendFundsForm';
 import LinkStudentForm from '../../components/LinkStudentForm';
 import TransactionList from '../../components/TransactionList';
 import ErrorBoundary from '../../components/ErrorBoundary';
+import ConnectWallet from '../../components/ConnectWallet';
 
 export default function ParentDashboardPage() {
   const { ready } = useRequireRole('parent');
@@ -71,7 +72,11 @@ export default function ParentDashboardPage() {
 
       {!loading && !error && data && (
         <ErrorBoundary>
-          <div className="grid md:grid-cols-3 gap-5 mb-8">
+          <div className="grid md:grid-cols-4 gap-5 mb-8">
+            <Panel className="p-6 bg-slate-800/80 border-mint/20">
+              <p className="text-sm text-slate-muted mb-1 text-mint">Live balance</p>
+              <p className="font-display text-3xl tabular">{data.liveXlmBalance !== null ? data.liveXlmBalance.toLocaleString() : '--'} XLM</p>
+            </Panel>
             <Panel className="p-6">
               <p className="text-sm text-slate-muted mb-1">Total sent</p>
               <p className="font-display text-3xl tabular">{data.totalSent.toLocaleString()} XLM</p>
@@ -90,7 +95,10 @@ export default function ParentDashboardPage() {
             <div className="lg:col-span-2 flex flex-col gap-5">
               <SendFundsForm students={data.studentsLinked} onSuccess={handleSent} />
             </div>
-            <LinkStudentForm onSuccess={handleLinked} />
+            <div className="flex flex-col gap-5">
+              <LinkStudentForm onSuccess={handleLinked} />
+              <ConnectWallet />
+            </div>
           </div>
 
           <Panel className="p-6">

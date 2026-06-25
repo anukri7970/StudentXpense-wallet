@@ -27,22 +27,22 @@ const { encryptSecret } = require('../services/encryption');
 const DEMO_PASSWORD = process.env.SEED_PASSWORD || 'Demo12345!';
 
 const PARENTS = [
-  { name: 'Arjun Sharma', email: 'parent1@demo.local' },
-  { name: 'Meera Patel', email: 'parent2@demo.local' },
-  { name: 'Sanjay Gupta', email: 'parent3@demo.local' },
+  { name: 'Arjun Sharma', email: 'arjun.sharma@gmail.com' },
+  { name: 'Meera Patel', email: 'meera.patel@gmail.com' },
+  { name: 'Sanjay Gupta', email: 'sanjay.gupta@gmail.com' },
 ];
 
 const STUDENTS = [
-  { name: 'Aarav Sharma', email: 'student1@demo.local' },
-  { name: 'Diya Patel', email: 'student2@demo.local' },
-  { name: 'Rahul Gupta', email: 'student3@demo.local' },
-  { name: 'Kavya Singh', email: 'student4@demo.local' },
-  { name: 'Ishaan Desai', email: 'student5@demo.local' },
+  { name: 'Aarav Sharma', email: 'aarav.sharma@gmail.com', parentEmail: 'arjun.sharma@gmail.com' },
+  { name: 'Diya Patel', email: 'diya.patel@gmail.com', parentEmail: 'meera.patel@gmail.com' },
+  { name: 'Rahul Gupta', email: 'rahul.gupta@gmail.com', parentEmail: 'sanjay.gupta@gmail.com' },
+  { name: 'Kavya Singh', email: 'kavya.singh@gmail.com', parentEmail: 'arjun.sharma@gmail.com' },
+  { name: 'Ishaan Desai', email: 'ishaan.desai@gmail.com', parentEmail: 'meera.patel@gmail.com' },
 ];
 
 const UNIVERSITIES = [
-  { name: 'Indian Institute of Technology Bombay', email: 'university1@demo.local' },
-  { name: 'Delhi University', email: 'university2@demo.local' },
+  { name: 'IIT Bombay', email: 'admissions@iitb.ac.in' },
+  { name: 'Delhi University', email: 'finance@du.ac.in' },
 ];
 
 async function createUser({ name, email, role }) {
