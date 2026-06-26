@@ -30,6 +30,7 @@ router.post('/analyze', authenticate, requireRole('student'), async (req, res, n
       const wrapped = new Error(`AI budget analysis failed: ${aiErr.message}`);
       wrapped.category = 'api';
       wrapped.statusCode = 502;
+      wrapped.publicMessage = wrapped.message;
       return next(wrapped);
     }
 
