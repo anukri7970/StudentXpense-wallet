@@ -4,7 +4,7 @@ use super::*;
 use soroban_sdk::{
     testutils::{Address as _, MockAuth, MockAuthInvoke},
     token::{StellarAssetClient, TokenClient},
-    Env,
+    Env, IntoVal,
 };
 
 fn setup<'a>(env: &Env) -> (Address, TokenClient<'a>, StellarAssetClient<'a>) {
@@ -21,7 +21,7 @@ fn deposit_then_release_full_amount() {
     let env = Env::default();
     env.mock_all_auths();
 
-    let contract_id = env.register(SendFunds, ());
+    let contract_id = env.register_contract(None, SendFunds);
     let client = SendFundsClient::new(&env, &contract_id);
 
     let parent = Address::generate(&env);
@@ -50,7 +50,7 @@ fn partial_release_keeps_remainder_escrowed() {
     let env = Env::default();
     env.mock_all_auths();
 
-    let contract_id = env.register(SendFunds, ());
+    let contract_id = env.register_contract(None, SendFunds);
     let client = SendFundsClient::new(&env, &contract_id);
 
     let parent = Address::generate(&env);
@@ -71,7 +71,7 @@ fn multiple_deposits_accumulate() {
     let env = Env::default();
     env.mock_all_auths();
 
-    let contract_id = env.register(SendFunds, ());
+    let contract_id = env.register_contract(None, SendFunds);
     let client = SendFundsClient::new(&env, &contract_id);
 
     let parent = Address::generate(&env);
@@ -90,7 +90,7 @@ fn release_more_than_balance_fails() {
     let env = Env::default();
     env.mock_all_auths();
 
-    let contract_id = env.register(SendFunds, ());
+    let contract_id = env.register_contract(None, SendFunds);
     let client = SendFundsClient::new(&env, &contract_id);
 
     let parent = Address::generate(&env);
@@ -109,7 +109,7 @@ fn deposit_zero_or_negative_fails() {
     let env = Env::default();
     env.mock_all_auths();
 
-    let contract_id = env.register(SendFunds, ());
+    let contract_id = env.register_contract(None, SendFunds);
     let client = SendFundsClient::new(&env, &contract_id);
 
     let parent = Address::generate(&env);
@@ -129,7 +129,7 @@ fn deposit_zero_or_negative_fails() {
 fn deposit_requires_parent_auth() {
     let env = Env::default();
 
-    let contract_id = env.register(SendFunds, ());
+    let contract_id = env.register_contract(None, SendFunds);
     let client = SendFundsClient::new(&env, &contract_id);
 
     let parent = Address::generate(&env);
@@ -163,7 +163,7 @@ fn balance_for_unknown_pair_is_zero() {
     let env = Env::default();
     env.mock_all_auths();
 
-    let contract_id = env.register(SendFunds, ());
+    let contract_id = env.register_contract(None, SendFunds);
     let client = SendFundsClient::new(&env, &contract_id);
 
     let parent = Address::generate(&env);
