@@ -1,11 +1,14 @@
 const express = require('express');
-const { TransactionBuilder, Networks, Operation, Asset, BASE_FEE, Memo } = require('@stellar/stellar-sdk');
+const { TransactionBuilder, Networks, Operation, Asset, BASE_FEE, Memo, SorobanRpc } = require('@stellar/stellar-sdk');
 
 const User = require('../models/User');
 const Transaction = require('../models/Transaction');
 const { authenticate, requireRole } = require('../middleware/auth');
 const { getHorizonServer } = require('../services/stellarService');
+const { buildDepositXdr, buildReleaseXdr } = require('../services/sorobanService');
 const { track } = require('../config/analytics');
+
+const XLM_TESTNET_ASSET = 'CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC';
 
 const router = express.Router();
 
@@ -24,23 +27,16 @@ router.post('/deposit/build', authenticate, requireRole('parent'), async (req, r
     if (!student || student.role !== 'student') return res.status(404).json({ error: 'Student not found.' });
     if (!student.stellarPublicKey) return res.status(400).json({ error: 'Student has not connected a wallet yet.' });
 
-    const server = getHorizonServer();
-    const account = await server.loadAccount(parent.stellarPublicKey);
+    const amountStroops = Math.floor(parseFloat(amount) * 10000000);
+    
+    const xdr = await buildDepositXdr({
+      parentPublicKey: parent.stellarPublicKey,
+      studentPublicKey: student.stellarPublicKey,
+      assetAddress: XLM_TESTNET_ASSET,
+      amountStroops
+    });
 
-    const tx = new TransactionBuilder(account, {
-      fee: BASE_FEE,
-      networkPassphrase: Networks.TESTNET,
-    })
-      .addOperation(Operation.payment({
-        destination: student.stellarPublicKey,
-        asset: Asset.native(),
-        amount: amount.toString(),
-      }))
-      .addMemo(Memo.text('StudentXpense transfer'))
-      .setTimeout(300)
-      .build();
-
-    return res.json({ xdr: tx.toXDR() });
+    return res.json({ xdr });
   } catch (err) {
     return next(err);
   }
@@ -49,8 +45,8 @@ router.post('/deposit/build', authenticate, requireRole('parent'), async (req, r
 router.post('/deposit/submit', authenticate, requireRole('parent'), async (req, res, next) => {
   try {
     const { signedXdr, studentId, amount } = req.body;
-    const server = getHorizonServer();
-    const result = await server.submitTransaction(TransactionBuilder.fromXDR(signedXdr, Networks.TESTNET));
+    const rpcServer = new SorobanRpc.Server(process.env.SOROBAN_RPC_URL || 'https://soroban-testnet.stellar.org');
+    const result = await rpcServer.sendTransaction(TransactionBuilder.fromXDR(signedXdr, Networks.TESTNET));
 
     const transaction = await Transaction.create({
       type: 'parent_deposit',
@@ -72,12 +68,52 @@ router.post('/deposit/submit', authenticate, requireRole('parent'), async (req, 
 // ----------------------------------------------------------------------------
 // RELEASE — not used in current flow (funds go direct parent->student)
 // ----------------------------------------------------------------------------
-router.post('/release/build', authenticate, requireRole('student'), async (req, res) => {
-  return res.status(501).json({ error: 'Release route not available. Funds are sent directly to student wallet.' });
+router.post('/release/build', authenticate, requireRole('student'), async (req, res, next) => {
+  try {
+    const { amount, parentId } = req.body;
+    if (!parentId || !amount || amount <= 0) return res.status(400).json({ error: 'Invalid input.' });
+
+    const student = await User.findById(req.user.id);
+    const parent = await User.findById(parentId);
+
+    if (!student?.stellarPublicKey) return res.status(400).json({ error: 'Connect your Freighter wallet first.' });
+    if (!parent?.stellarPublicKey) return res.status(400).json({ error: 'Parent has no wallet.' });
+
+    const amountStroops = Math.floor(parseFloat(amount) * 10000000);
+
+    const xdr = await buildReleaseXdr({
+      parentPublicKey: parent.stellarPublicKey,
+      studentPublicKey: student.stellarPublicKey,
+      assetAddress: XLM_TESTNET_ASSET,
+      amountStroops
+    });
+
+    return res.json({ xdr });
+  } catch (err) {
+    return next(err);
+  }
 });
 
-router.post('/release/submit', authenticate, requireRole('student'), async (req, res) => {
-  return res.status(501).json({ error: 'Release route not available.' });
+router.post('/release/submit', authenticate, requireRole('student'), async (req, res, next) => {
+  try {
+    const { signedXdr, parentId, amount } = req.body;
+    const rpcServer = new SorobanRpc.Server(process.env.SOROBAN_RPC_URL || 'https://soroban-testnet.stellar.org');
+    const result = await rpcServer.sendTransaction(TransactionBuilder.fromXDR(signedXdr, Networks.TESTNET));
+
+    const transaction = await Transaction.create({
+      type: 'student_release',
+      fromUser: req.user.id,
+      toUser: parentId,
+      amount,
+      assetCode: 'XLM',
+      txHash: result.hash,
+      status: 'success',
+    });
+    track(req.user.id, 'funds_released', { amount, parentId });
+    return res.status(201).json({ transaction });
+  } catch (err) {
+    return next(err);
+  }
 });
 
 

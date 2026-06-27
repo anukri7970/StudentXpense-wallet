@@ -159,7 +159,7 @@ router.get('/parent-dashboard', authenticate, requireRole('parent'), async (req,
 
 router.get('/student-dashboard', authenticate, requireRole('student'), async (req, res, next) => {
   try {
-    const student = await User.findById(req.user.id);
+    const student = await User.findById(req.user.id).populate('linkedParents', 'name email');
 
     let liveBalance = null;
     try {
@@ -180,6 +180,7 @@ router.get('/student-dashboard', authenticate, requireRole('student'), async (re
       liveXlmBalance: liveBalance,
       expenses,
       categoryBreakdown,
+      linkedParents: student.linkedParents,
     });
   } catch (err) {
     return next(err);

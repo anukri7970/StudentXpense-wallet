@@ -14,6 +14,7 @@ import ExpensePieChart from '../../components/ExpensePieChart';
 import MonthlyTrendChart from '../../components/MonthlyTrendChart';
 import AiAdvisorPanel from '../../components/AiAdvisorPanel';
 import PayTuitionForm from '../../components/PayTuitionForm';
+import ReleaseFundsForm from '../../components/ReleaseFundsForm';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import ConnectWallet from '../../components/ConnectWallet';
 import TransactionList from '../../components/TransactionList';
@@ -65,6 +66,18 @@ export default function StudentDashboardPage() {
     const explorerUrl = txHash ? `https://stellar.expert/explorer/testnet/tx/${txHash}` : null;
     setToast({
       message: txHash ? 'Tuition paid! View on Stellar Explorer ↗' : 'Tuition payment sent.',
+      tone: 'mint',
+      href: explorerUrl,
+    });
+    fetchDashboard();
+    refresh();
+  };
+
+  const handleFundsReleased = (result) => {
+    const txHash = result?.transaction?.txHash;
+    const explorerUrl = txHash ? `https://stellar.expert/explorer/testnet/tx/${txHash}` : null;
+    setToast({
+      message: txHash ? 'Funds released from escrow! View on Explorer ↗' : 'Funds released.',
       tone: 'mint',
       href: explorerUrl,
     });
@@ -132,6 +145,7 @@ export default function StudentDashboardPage() {
             <div className="flex flex-col gap-5">
               <ConnectWallet onWalletChange={fetchDashboard} />
               <PayTuitionForm universities={universities} onSuccess={handleTuitionPaid} />
+              <ReleaseFundsForm linkedParents={data.linkedParents} onSuccess={handleFundsReleased} />
             </div>
           </div>
 
