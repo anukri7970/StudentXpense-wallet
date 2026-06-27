@@ -76,3 +76,4 @@ router.get('/summary', authenticate, async (req, res, next) => {
 });
 
 module.exports = router;
+// Feature: Dark mode toggle settings endpoint to be added
