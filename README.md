@@ -97,6 +97,14 @@ contracts/  Soroban (Rust) — the SendFunds escrow contract + tests
 - **Dashboard Overview**: Real-time receipt tracking of student tuition payments.
   ![University Dashboard](screenshots/university_dshboard.png)
 
+### Mobile Responsive Design
+- **Mobile View**: Fully responsive across all devices.
+  ![Mobile Design](screenshots/mobile_responsive.png)
+
+### Analytics and Monitoring
+- **PostHog & Sentry**: Full telemetry and error monitoring integration.
+  ![Analytics](screenshots/analytics.png)
+
   ## Onchain Proof of Wallet Interactions
 
 Below is the verified ledger of 15 real testnet transactions, showing parent deposits, student withdrawals, and tuition payments:
@@ -172,9 +180,9 @@ Based on feedback from our 50+ users, we identified and implemented the followin
 
 ---
 
-## 12. Level 5 Final Submission Checklist
+## 12. Level 4 & 5 Final Submission Checklist
 
-✅ **User Growth**
+✅ **User Growth (Level 4/5)**
 - [x] 50+ real users onboarded with wallet addresses
 - [x] Real transaction activity from these users (verifiable on chain)
 - [x] Excel sheet with feedback analysis attached to README
