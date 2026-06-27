@@ -131,7 +131,6 @@ Below is the verified ledger of 15 real testnet transactions, showing parent dep
 
 - **Deployed URL**: [student-xpense-wallet.vercel.app](https://student-xpense-wallet.vercel.app/)
 - **Demo Video**: [Watch the Demo on Google Drive](https://drive.google.com/file/d/13XwQHzmGFWkDgURtCRDpvVY_vBUD2F8E/view?usp=sharing)
-- **Pitch Deck (PPT)**: [StudentXpense Pitch Deck](https://docs.google.com/presentation/d/1iLVWPi4RRfZS1rP2CdgqExs4IZYYd9Nw/edit?usp=drive_link&ouid=114494973489055894068&rtpof=true&sd=true)
 
 ---
 
