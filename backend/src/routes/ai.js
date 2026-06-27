@@ -60,3 +60,4 @@ router.get('/history', authenticate, requireRole('student'), async (req, res, ne
 });
 
 module.exports = router;
+// Feature: Export budget reports to PDF support planned
