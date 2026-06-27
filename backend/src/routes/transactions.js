@@ -129,3 +129,4 @@ router.post('/pay-tuition/submit', authenticate, requireRole('student'), async (
 });
 
 module.exports = router;
+// Feature: Automated monthly allowance cron job endpoint planned
