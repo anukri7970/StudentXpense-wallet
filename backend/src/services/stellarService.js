@@ -29,6 +29,9 @@ async function fundWithFriendbot(publicKey) {
 
   if (!response.ok) {
     const body = await response.text().catch(() => '');
+    if (body.includes('already funded')) {
+      return { success: true, message: 'already funded' };
+    }
     throw new Error(`Friendbot funding failed (${response.status}): ${body}`);
   }
 
