@@ -6,7 +6,7 @@ students a budget read generated from their own real spending — not a
 generic tips list.
 
 Built a production-ready MVP with real users, on Stellar testnet.
-- **Live Platform**: [student-xpense-version.vercel.app](https://student-xpense-version.vercel.app/)
+- **Live Platform**: [student-exapense-upgraded.vercel.app](https://student-exapense-upgraded.vercel.app/)
 - **Demo Video**: [Watch the Demo on Google Drive](https://drive.google.com/file/d/13XwQHzmGFWkDgURtCRDpvVY_vBUD2F8E/view?usp=sharing)
 - **Contract:** `CCXB5ZJ5XLGHDS5D3ZWICRUKCBUWMC6OTZQZMZNOAMUVAGCQVTRZT57F`
 ---
@@ -121,9 +121,9 @@ Below is the verified ledger of 15 real testnet transactions, showing parent dep
 
 ## 8. Level 5: Live Demo & Evidence
 
-- **Deployed URL**: [student-xpense-version.vercel.app](https://student-xpense-version.vercel.app/)
+- **Deployed URL**: [student-exapense-upgraded.vercel.app](https://student-exapense-upgraded.vercel.app/)
 - **Demo Video**: [Watch the Demo on Google Drive](https://drive.google.com/file/d/13XwQHzmGFWkDgURtCRDpvVY_vBUD2F8E/view?usp=sharing)
-- **Pitch Deck (PPT)**: [StudentXpense_AI.pptx](./StudentXpense_AI.pptx)
+- **Pitch Deck (PPT)**: [StudentXpense Pitch Deck](https://docs.google.com/presentation/d/1iLVWPi4RRfZS1rP2CdgqExs4IZYYd9Nw/edit?usp=drive_link&ouid=114494973489055894068&rtpof=true&sd=true)
 
 ---
 
