@@ -99,11 +99,11 @@ contracts/  Soroban (Rust) — the SendFunds escrow contract + tests
 
 ### Mobile Responsive Design
 - **Mobile View**: Fully responsive across all devices.
-  ![Mobile Design](screenshots/mobile_responsive.png)
+  ![Mobile Design](screenshots/mobile_view.png)
 
 ### Analytics and Monitoring
 - **PostHog & Sentry**: Full telemetry and error monitoring integration.
-  ![Analytics](screenshots/analytics.png)
+  ![Analytics](screenshots/analytics_console.png)
 
   ## Onchain Proof of Wallet Interactions
 
