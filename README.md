@@ -6,9 +6,9 @@ students a budget read generated from their own real spending — not a
 generic tips list.
 
 Built a production-ready MVP with real users, on Stellar testnet.
-- **Live Platform**: [student-xpense-wallet.vercel.app](https://student-xpense-wallet.vercel.app/)
+- **Live Platform**: [student-xpense-upgraded.vercel.app](https://student-xpense-upgraded.vercel.app/)
 - **Demo Video**: [Watch the Demo on Google Drive](https://drive.google.com/file/d/13XwQHzmGFWkDgURtCRDpvVY_vBUD2F8E/view?usp=sharing)
-- **Contract:** `CCGKYW6GKPLXULYWLT2QRZJRR46WQ45DHLBCUWLWWTWIQPO54OL2QHOW`
+- **Contract:** `CCXB5ZJ5XLGHDS5D3ZWICRUKCBUWMC6OTZQZMZNOAMUVAGCQVTRZT57F`
 ---
 
 ## Why this exists
@@ -121,7 +121,7 @@ Below is the verified ledger of 15 real testnet transactions, showing parent dep
 
 ## 8. Level 5: Live Demo & Evidence
 
-- **Deployed URL**: [student-xpense-wallet.vercel.app](https://student-xpense-wallet.vercel.app/)
+- **Deployed URL**: [student-xpense-upgraded.vercel.app](https://student-xpense-upgraded.vercel.app/)
 - **Demo Video**: [Watch the Demo on Google Drive](https://drive.google.com/file/d/13XwQHzmGFWkDgURtCRDpvVY_vBUD2F8E/view?usp=sharing)
 
 ---
