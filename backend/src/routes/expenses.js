@@ -49,3 +49,4 @@ router.delete('/:id', authenticate, requireRole('student'), async (req, res, nex
 });
 
 module.exports = router;
+// Feature: Deposit Categorization schema support planned
