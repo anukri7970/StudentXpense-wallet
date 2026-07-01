@@ -11,6 +11,15 @@ Built a production-ready MVP with real users, on Stellar testnet.
 - **Contract:** `CCXB5ZJ5XLGHDS5D3ZWICRUKCBUWMC6OTZQZMZNOAMUVAGCQVTRZT57F`
 ---
 
+## User Growth Metrics (Level 4)
+
+- **Total Users Onboarded**: 15+
+- **Real Transactions Processed**: 20+
+- **Average User Satisfaction**: 4.4/5
+- **User Feedback Form**: [StudentXpense Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLScCfchXLzPVQTkKKwtkeH6RMj-fIzbGCtpe3whg_JY6Rp4-nA/viewform?usp=dialog)
+- **Feedback Response sheet**: [user_feedback_responses sheet](https://docs.google.com/spreadsheets/d/1ktcy6m8piWwPYcm0fa4-_i2HoiqLo6W-ZcanLYVh-TU/edit?usp=sharing)
+
+
 ## Why this exists
 
 Parents who send money for tuition, rent, food, and books usually lose
@@ -131,17 +140,6 @@ Below is the verified ledger of 15 real testnet transactions, showing parent dep
 
 - **Deployed URL**: [student-xpense-wallet.vercel.app](https://student-xpense-wallet.vercel.app/)
 - **Demo Video**: [Watch the Demo on Google Drive](https://drive.google.com/file/d/13XwQHzmGFWkDgURtCRDpvVY_vBUD2F8E/view?usp=sharing)
-
----
-
-## 9. User Growth Metrics (Level 4)
-
-- **Total Users Onboarded**: 15+
-- **Real Transactions Processed**: 20+
-- **Average User Satisfaction**: 4.4/5
-- **User Feedback Form**: [StudentXpense Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLSchxIzXlGbEx2gKRU-vV6-PBN8C86IdP4hpHAXFS1fVJpHHSQ/viewform)
-- **Feedback Analysis Data**: [user_feedback_responses.csv](./user_feedback_responses.csv)
-
 ---
 
 ## 10. Product Improvements (Based on Real User Feedback)
