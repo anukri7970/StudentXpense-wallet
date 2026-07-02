@@ -9,6 +9,8 @@ Built a production-ready MVP with real users, on Stellar testnet.
 - **Live Platform**: [student-exapense-upgraded.vercel.app](https://student-exapense-upgraded.vercel.app/)
 - **Demo Video**: [Watch the Demo on Google Drive](https://drive.google.com/file/d/13XwQHzmGFWkDgURtCRDpvVY_vBUD2F8E/view?usp=sharing)
 - **Contract:** `CCXB5ZJ5XLGHDS5D3ZWICRUKCBUWMC6OTZQZMZNOAMUVAGCQVTRZT57F`
+ - **User Feedback Form**: [StudentXpense Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLScCfchXLzPVQTkKKwtkeH6RMj-fIzbGCtpe3whg_JY6Rp4-nA/viewform?usp=dialog)
+- **Feedback Analysis Data (Public Excel/CSV)**: [StudentXpense Responses Sheet](https://docs.google.com/spreadsheets/d/1ktcy6m8piWwPYcm0fa4-_i2HoiqLo6W-ZcanLYVh-TU/edit?usp=sharing)
 ---
 
 ## Why this exists
@@ -116,9 +118,6 @@ Below is the verified ledger of 15 real testnet transactions, showing parent dep
 - **Total Users Onboarded**: 15+
 - **Real Transactions Processed**: 20+
 - **Average User Satisfaction**: 4.4/5
-- **User Feedback Form**: [StudentXpense Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLScCfchXLzPVQTkKKwtkeH6RMj-fIzbGCtpe3whg_JY6Rp4-nA/viewform?usp=dialog)
-- **Feedback Analysis Data (Public Excel/CSV)**: [StudentXpense Responses Sheet](https://docs.google.com/spreadsheets/d/1ktcy6m8piWwPYcm0fa4-_i2HoiqLo6W-ZcanLYVh-TU/edit?usp=sharing)
-
 ### Users Onboarded
 | User ID | Name | Email | Wallet Address | Feedback Summary |
 |---|---|---|---|---|
