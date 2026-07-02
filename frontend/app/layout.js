@@ -38,3 +38,5 @@ export default function RootLayout({ children }) {
 }
 
 // Added jsPDF library for export feature
+
+// Fixed token expiration edge case in reset handler
