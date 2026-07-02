@@ -21,7 +21,7 @@ Built a production-ready MVP with real users, on Stellar testnet.
 
 ### Users Onboarded
 | User ID | Name | Email | Wallet Address | Feedback Summary |
-||---|---|---|---|
+|---|---|---|---|---|
 | USR-001 | Sanjay Kumar | sanjayk884@gmail.com | [GDZ6OFGZJMVL7S7PWTHD2TOANQXSUFTOTLDMHVGOYAFAAVQ5KHXNNK2A](https://stellar.expert/explorer/testnet/account/GDZ6OFGZJMVL7S7PWTHD2TOANQXSUFTOTLDMHVGOYAFAAVQ5KHXNNK2A) | The bright white UI is quite harsh on the eyes at night. Need a dark mode. |
 | USR-002 | Priya Patel | priya.patel92@gmail.com | [GDR5NG44NGJJYMGGQ7C5FJT5YIG3U2U763NIB2TO4QSU2BLXFLNSWPRZ](https://stellar.expert/explorer/testnet/account/GDR5NG44NGJJYMGGQ7C5FJT5YIG3U2U763NIB2TO4QSU2BLXFLNSWPRZ) | Being able to attach a specific label like "Tuition Fee" would ensure my daughter knows exactly what it is for. |
 | USR-003 | Anil Verma | anilverma_75@yahoo.com | [GBQW66J7J2SVL277SB2E5NTBO4DSBDIF5C72RBXQARNVGF5TOMFSW6VV](https://stellar.expert/explorer/testnet/account/GBQW66J7J2SVL277SB2E5NTBO4DSBDIF5C72RBXQARNVGF5TOMFSW6VV) | Sending the same amount for rent manually is repetitive. An automated monthly allowance would save time. |
