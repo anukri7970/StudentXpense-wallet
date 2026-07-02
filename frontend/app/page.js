@@ -116,3 +116,5 @@ export default function HomePage() {
     </main>
   );
 }
+
+// Added categorized deposit UI fields
