@@ -4,3 +4,5 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
+// Configured remote image domains for faster load
