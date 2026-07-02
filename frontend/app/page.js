@@ -128,3 +128,5 @@ export default function HomePage() {
 // Adjusted AI system prompt with specific context rules
 
 // Tuition-only filtered dashboard state
+
+// Webhook trigger for SendGrid email alerts
