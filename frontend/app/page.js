@@ -126,3 +126,5 @@ export default function HomePage() {
 // Updated category constants array
 
 // Adjusted AI system prompt with specific context rules
+
+// Tuition-only filtered dashboard state
