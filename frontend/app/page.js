@@ -122,3 +122,5 @@ export default function HomePage() {
 // Integrated Soroban cron check for monthly deposits
 
 // Implemented weekly chart view component
+
+// Updated category constants array
