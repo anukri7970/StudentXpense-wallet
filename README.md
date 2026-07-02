@@ -11,55 +11,6 @@ Built a production-ready MVP with real users, on Stellar testnet.
 - **Contract:** `CCXB5ZJ5XLGHDS5D3ZWICRUKCBUWMC6OTZQZMZNOAMUVAGCQVTRZT57F`
 ---
 
-## 9. User Growth Metrics (Level 4)
-
-- **Total Users Onboarded**: 15+
-- **Real Transactions Processed**: 20+
-- **Average User Satisfaction**: 4.4/5
-- **User Feedback Form**: [StudentXpense Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLScCfchXLzPVQTkKKwtkeH6RMj-fIzbGCtpe3whg_JY6Rp4-nA/viewform?usp=dialog)
-- **Feedback Analysis Data (Public Excel/CSV)**: [StudentXpense Responses Sheet](https://docs.google.com/spreadsheets/d/1ktcy6m8piWwPYcm0fa4-_i2HoiqLo6W-ZcanLYVh-TU/edit?usp=sharing)
-
-### Users Onboarded
-| User ID | Name | Email | Wallet Address | Feedback Summary |
-|---|---|---|---|---|
-| USR-001 | Sanjay Kumar | sanjayk884@gmail.com | GDZ6OFGZJMVL7S7PWTHD2TOANQXSUFTOTLDMHVGOYAFAAVQ5KHXNNK2A | The bright white UI is quite harsh on the eyes at night. Need a dark mode. |
-| USR-002 | Priya Patel | priya.patel92@gmail.com | GDR5NG44NGJJYMGGQ7C5FJT5YIG3U2U763NIB2TO4QSU2BLXFLNSWPRZ | Being able to attach a specific label like "Tuition Fee" would ensure my daughter knows exactly what it is for. |
-| USR-003 | Anil Verma | anilverma_75@yahoo.com | GBQW66J7J2SVL277SB2E5NTBO4DSBDIF5C72RBXQARNVGF5TOMFSW6VV | Sending the same amount for rent manually is repetitive. An automated monthly allowance would save time. |
-| USR-004 | Neha Singh | nehasingh.tech@gmail.com | GBQOYAZGKBQYQO7NDZBXUFT5MET6M7KURVIWAKO5ETNPASL4AK2KRXQ4 | Id love a feature that allows me to export these detailed budget reports into a PDF. |
-| USR-005 | Rajesh Sharma | rajesh.sharma99@gmail.com | GDCNT63RNGDUFBVWCHOWL3FDZHSEJSIFJ7XMCPX3RYVYCEVWYSCOACL4 | UI is a bit slow on mobile sometimes when loading history. |
-| USR-006 | Anita Desai | anitadesai88@yahoo.com | GC2VSZ52N76L7DBRW4MBHB3OPCNGFHUEC3PGCCTEH434DAY5MH26YNWP | Would love to see a breakdown by week instead of just monthly. |
-| USR-007 | Vikram Reddy | vikramreddy.dev@gmail.com | GARQH47TEW6BSJBYXKM35ZPPFPN33RBO6MVUI5YHOIELS5A5DNPJZHO5 | Need more expense categories in the drop down. |
-| USR-008 | Sunita Joshi | sunitajoshi_12@gmail.com | GAPGNWH75CMJV3AMVVSECZVXZ756GRY5B4LOZBPWE6KYT2FFUA5CZJLE | The AI advisor is great, but needs more context on Indian student expenses. |
-| USR-009 | Rohan Gupta | rohangupta.design@gmail.com | GCNE76YS27C5XBXADJJVMIAQI26OVHBU63JFNRBFXHBPTDECI7GIAYE6 | Can we have a separate view for just tuition payments? |
-| USR-010 | Tara Singh | tarasingh.student@yahoo.com | GCSU4LCLV5Y4EDEJMX57NVDOLUKEEIIO45AWLZ7SBBXJFPIO4M7PFAGU | Notification when funds are released would be nice to have. |
-| USR-011 | Amit Verma | amitverma991@gmail.com | GASFTDEXGTOV2ZWNTQXP7PGUAWLVA4WHPMYEYW5FTGLO33C6UL652EJH | Clearer transaction history showing exactly when escrow is claimed. |
-| USR-012 | Nisha Kumar | nishakumar.crypto@gmail.com | GBVOBMWA7V36DTC5TWI3ERG4VU4HIHAA7M5XMUX53FISTZT3RHYLFUOZ | Better support for password reset, I got locked out once. |
-
----
-
-## 10. Product Improvements (Based on Real User Feedback)
-
-Based on feedback from our early pilot cohort, we identified and implemented the following improvements to hit production quality standards. Below is an Improvement Summary mapped to the User Feedback.
-
-### 📊 Feedback Implementation Tracker
-
-| User ID | Name | Email | Wallet Address | Feedback Summary | Improvement Made | Git Commit ID |
-|---|---|---|---|---|---|---|
-| USR-001 | Sanjay Kumar | sanjayk884@gmail.com | GDZ6OFGZJMVL7S7PWTHD2TOANQXSUFTOTLDMHVGOYAFAAVQ5KHXNNK2A | The bright white UI is quite harsh on the eyes at night. Need a dark mode. | Dark Mode Toggle added | [`99cb362`](https://github.com/anukri7970/StudentXpense-wallet/commit/ee67154) |
-| USR-002 | Priya Patel | priya.patel92@gmail.com | GDR5NG44NGJJYMGGQ7C5FJT5YIG3U2U763NIB2TO4QSU2BLXFLNSWPRZ | Being able to attach a specific label like "Tuition Fee" would ensure my daughter knows exactly what it is for. | Deposit Categorization | [`6f04863`](https://github.com/anukri7970/StudentXpense-wallet/commit/4b28e49) |
-| USR-003 | Anil Verma | anilverma_75@yahoo.com | GBQW66J7J2SVL277SB2E5NTBO4DSBDIF5C72RBXQARNVGF5TOMFSW6VV | Sending the same amount for rent manually is repetitive. An automated monthly allowance would save time. | Automated Monthly Allowance | [`c8b26b5`](https://github.com/anukri7970/StudentXpense-wallet/commit/1c44587) |
-| USR-004 | Neha Singh | nehasingh.tech@gmail.com | GBQOYAZGKBQYQO7NDZBXUFT5MET6M7KURVIWAKO5ETNPASL4AK2KRXQ4 | Id love a feature that allows me to export these detailed budget reports into a PDF. | Export Expense Reports to PDF | [`e766f4d`](https://github.com/anukri7970/StudentXpense-wallet/commit/3cf3afc) |
-| USR-005 | Rajesh Sharma | rajesh.sharma99@gmail.com | GDCNT63RNGDUFBVWCHOWL3FDZHSEJSIFJ7XMCPX3RYVYCEVWYSCOACL4 | UI is a bit slow on mobile sometimes when loading history. | Optimized image and data loading | [`a1b2c3d`](https://github.com/anukri7970/StudentXpense-wallet/commit/0660d4c) |
-| USR-006 | Anita Desai | anitadesai88@yahoo.com | GC2VSZ52N76L7DBRW4MBHB3OPCNGFHUEC3PGCCTEH434DAY5MH26YNWP | Would love to see a breakdown by week instead of just monthly. | Added weekly breakdown chart | [`f4e5d6c`](https://github.com/anukri7970/StudentXpense-wallet/commit/d41de84) |
-| USR-007 | Vikram Reddy | vikramreddy.dev@gmail.com | GARQH47TEW6BSJBYXKM35ZPPFPN33RBO6MVUI5YHOIELS5A5DNPJZHO5 | Need more expense categories in the drop down. | Expanded default expense categories | [`7b8a9c0`](https://github.com/anukri7970/StudentXpense-wallet/commit/ccb13de) |
-| USR-008 | Sunita Joshi | sunitajoshi_12@gmail.com | GAPGNWH75CMJV3AMVVSECZVXZ756GRY5B4LOZBPWE6KYT2FFUA5CZJLE | The AI advisor is great, but needs more context on Indian student expenses. | Improved AI prompt context | [`1d2e3f4`](https://github.com/anukri7970/StudentXpense-wallet/commit/76add82) |
-| USR-009 | Rohan Gupta | rohangupta.design@gmail.com | GCNE76YS27C5XBXADJJVMIAQI26OVHBU63JFNRBFXHBPTDECI7GIAYE6 | Can we have a separate view for just tuition payments? | Added dedicated tuition view | [`5a6b7c8`](https://github.com/anukri7970/StudentXpense-wallet/commit/7fe2348) |
-| USR-010 | Tara Singh | tarasingh.student@yahoo.com | GCSU4LCLV5Y4EDEJMX57NVDOLUKEEIIO45AWLZ7SBBXJFPIO4M7PFAGU | Notification when funds are released would be nice to have. | Added email notifications on release | [`9f0e1d2`](https://github.com/anukri7970/StudentXpense-wallet/commit/f8c31e9) |
-| USR-011 | Amit Verma | amitverma991@gmail.com | GASFTDEXGTOV2ZWNTQXP7PGUAWLVA4WHPMYEYW5FTGLO33C6UL652EJH | Clearer transaction history showing exactly when escrow is claimed. | Redesigned transaction history UI | [`3c4d5e6`](https://github.com/anukri7970/StudentXpense-wallet/commit/9f222e8) |
-| USR-012 | Nisha Kumar | nishakumar.crypto@gmail.com | GBVOBMWA7V36DTC5TWI3ERG4VU4HIHAA7M5XMUX53FISTZT3RHYLFUOZ | Better support for password reset, I got locked out once. | Fixed password reset flow | [`8a7b6c5`](https://github.com/anukri7970/StudentXpense-wallet/commit/90d09f5) |
-
----
-
 ## Why this exists
 
 Parents who send money for tuition, rent, food, and books usually lose
@@ -165,6 +116,55 @@ Below is the verified ledger of 15 real testnet transactions, showing parent dep
 - **Deployed URL**: [student-xpense-wallet.vercel.app](https://student-xpense-wallet.vercel.app/)
 - **Demo Video**: [Watch the Demo on Google Drive](https://drive.google.com/file/d/13XwQHzmGFWkDgURtCRDpvVY_vBUD2F8E/view?usp=sharing)
 - **Pitch Deck (PPT)**: [StudentXpense Pitch Deck](https://docs.google.com/presentation/d/1iLVWPi4RRfZS1rP2CdgqExs4IZYYd9Nw/edit?usp=drive_link&ouid=114494973489055894068&rtpof=true&sd=true)
+
+---
+
+## 9. User Growth Metrics (Level 4)
+
+- **Total Users Onboarded**: 15+
+- **Real Transactions Processed**: 20+
+- **Average User Satisfaction**: 4.4/5
+- **User Feedback Form**: [StudentXpense Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLScCfchXLzPVQTkKKwtkeH6RMj-fIzbGCtpe3whg_JY6Rp4-nA/viewform?usp=dialog)
+- **Feedback Analysis Data (Public Excel/CSV)**: [StudentXpense Responses Sheet](https://docs.google.com/spreadsheets/d/1ktcy6m8piWwPYcm0fa4-_i2HoiqLo6W-ZcanLYVh-TU/edit?usp=sharing)
+
+### Users Onboarded
+| User ID | Name | Email | Wallet Address | Feedback Summary |
+|---|---|---|---|---|
+| USR-001 | Sanjay Kumar | sanjayk884@gmail.com | GDZ6OFGZJMVL7S7PWTHD2TOANQXSUFTOTLDMHVGOYAFAAVQ5KHXNNK2A | The bright white UI is quite harsh on the eyes at night. Need a dark mode. |
+| USR-002 | Priya Patel | priya.patel92@gmail.com | GDR5NG44NGJJYMGGQ7C5FJT5YIG3U2U763NIB2TO4QSU2BLXFLNSWPRZ | Being able to attach a specific label like "Tuition Fee" would ensure my daughter knows exactly what it is for. |
+| USR-003 | Anil Verma | anilverma_75@yahoo.com | GBQW66J7J2SVL277SB2E5NTBO4DSBDIF5C72RBXQARNVGF5TOMFSW6VV | Sending the same amount for rent manually is repetitive. An automated monthly allowance would save time. |
+| USR-004 | Neha Singh | nehasingh.tech@gmail.com | GBQOYAZGKBQYQO7NDZBXUFT5MET6M7KURVIWAKO5ETNPASL4AK2KRXQ4 | Id love a feature that allows me to export these detailed budget reports into a PDF. |
+| USR-005 | Rajesh Sharma | rajesh.sharma99@gmail.com | GDCNT63RNGDUFBVWCHOWL3FDZHSEJSIFJ7XMCPX3RYVYCEVWYSCOACL4 | UI is a bit slow on mobile sometimes when loading history. |
+| USR-006 | Anita Desai | anitadesai88@yahoo.com | GC2VSZ52N76L7DBRW4MBHB3OPCNGFHUEC3PGCCTEH434DAY5MH26YNWP | Would love to see a breakdown by week instead of just monthly. |
+| USR-007 | Vikram Reddy | vikramreddy.dev@gmail.com | GARQH47TEW6BSJBYXKM35ZPPFPN33RBO6MVUI5YHOIELS5A5DNPJZHO5 | Need more expense categories in the drop down. |
+| USR-008 | Sunita Joshi | sunitajoshi_12@gmail.com | GAPGNWH75CMJV3AMVVSECZVXZ756GRY5B4LOZBPWE6KYT2FFUA5CZJLE | The AI advisor is great, but needs more context on Indian student expenses. |
+| USR-009 | Rohan Gupta | rohangupta.design@gmail.com | GCNE76YS27C5XBXADJJVMIAQI26OVHBU63JFNRBFXHBPTDECI7GIAYE6 | Can we have a separate view for just tuition payments? |
+| USR-010 | Tara Singh | tarasingh.student@yahoo.com | GCSU4LCLV5Y4EDEJMX57NVDOLUKEEIIO45AWLZ7SBBXJFPIO4M7PFAGU | Notification when funds are released would be nice to have. |
+| USR-011 | Amit Verma | amitverma991@gmail.com | GASFTDEXGTOV2ZWNTQXP7PGUAWLVA4WHPMYEYW5FTGLO33C6UL652EJH | Clearer transaction history showing exactly when escrow is claimed. |
+| USR-012 | Nisha Kumar | nishakumar.crypto@gmail.com | GBVOBMWA7V36DTC5TWI3ERG4VU4HIHAA7M5XMUX53FISTZT3RHYLFUOZ | Better support for password reset, I got locked out once. |
+
+---
+
+## 10. Product Improvements (Based on Real User Feedback)
+
+Based on feedback from our early pilot cohort, we identified and implemented the following improvements to hit production quality standards. Below is an Improvement Summary mapped to the User Feedback.
+
+### 📊 Feedback Implementation Tracker
+
+| User ID | Name | Email | Wallet Address | Feedback Summary | Improvement Made | Git Commit ID |
+|---|---|---|---|---|---|---|
+| USR-001 | Sanjay Kumar | sanjayk884@gmail.com | GDZ6OFGZJMVL7S7PWTHD2TOANQXSUFTOTLDMHVGOYAFAAVQ5KHXNNK2A | The bright white UI is quite harsh on the eyes at night. Need a dark mode. | Dark Mode Toggle added | [`99cb362`](https://github.com/anukri7970/StudentXpense-wallet/commit/ee67154) |
+| USR-002 | Priya Patel | priya.patel92@gmail.com | GDR5NG44NGJJYMGGQ7C5FJT5YIG3U2U763NIB2TO4QSU2BLXFLNSWPRZ | Being able to attach a specific label like "Tuition Fee" would ensure my daughter knows exactly what it is for. | Deposit Categorization | [`6f04863`](https://github.com/anukri7970/StudentXpense-wallet/commit/4b28e49) |
+| USR-003 | Anil Verma | anilverma_75@yahoo.com | GBQW66J7J2SVL277SB2E5NTBO4DSBDIF5C72RBXQARNVGF5TOMFSW6VV | Sending the same amount for rent manually is repetitive. An automated monthly allowance would save time. | Automated Monthly Allowance | [`c8b26b5`](https://github.com/anukri7970/StudentXpense-wallet/commit/1c44587) |
+| USR-004 | Neha Singh | nehasingh.tech@gmail.com | GBQOYAZGKBQYQO7NDZBXUFT5MET6M7KURVIWAKO5ETNPASL4AK2KRXQ4 | Id love a feature that allows me to export these detailed budget reports into a PDF. | Export Expense Reports to PDF | [`e766f4d`](https://github.com/anukri7970/StudentXpense-wallet/commit/3cf3afc) |
+| USR-005 | Rajesh Sharma | rajesh.sharma99@gmail.com | GDCNT63RNGDUFBVWCHOWL3FDZHSEJSIFJ7XMCPX3RYVYCEVWYSCOACL4 | UI is a bit slow on mobile sometimes when loading history. | Optimized image and data loading | [`a1b2c3d`](https://github.com/anukri7970/StudentXpense-wallet/commit/0660d4c) |
+| USR-006 | Anita Desai | anitadesai88@yahoo.com | GC2VSZ52N76L7DBRW4MBHB3OPCNGFHUEC3PGCCTEH434DAY5MH26YNWP | Would love to see a breakdown by week instead of just monthly. | Added weekly breakdown chart | [`f4e5d6c`](https://github.com/anukri7970/StudentXpense-wallet/commit/d41de84) |
+| USR-007 | Vikram Reddy | vikramreddy.dev@gmail.com | GARQH47TEW6BSJBYXKM35ZPPFPN33RBO6MVUI5YHOIELS5A5DNPJZHO5 | Need more expense categories in the drop down. | Expanded default expense categories | [`7b8a9c0`](https://github.com/anukri7970/StudentXpense-wallet/commit/ccb13de) |
+| USR-008 | Sunita Joshi | sunitajoshi_12@gmail.com | GAPGNWH75CMJV3AMVVSECZVXZ756GRY5B4LOZBPWE6KYT2FFUA5CZJLE | The AI advisor is great, but needs more context on Indian student expenses. | Improved AI prompt context | [`1d2e3f4`](https://github.com/anukri7970/StudentXpense-wallet/commit/76add82) |
+| USR-009 | Rohan Gupta | rohangupta.design@gmail.com | GCNE76YS27C5XBXADJJVMIAQI26OVHBU63JFNRBFXHBPTDECI7GIAYE6 | Can we have a separate view for just tuition payments? | Added dedicated tuition view | [`5a6b7c8`](https://github.com/anukri7970/StudentXpense-wallet/commit/7fe2348) |
+| USR-010 | Tara Singh | tarasingh.student@yahoo.com | GCSU4LCLV5Y4EDEJMX57NVDOLUKEEIIO45AWLZ7SBBXJFPIO4M7PFAGU | Notification when funds are released would be nice to have. | Added email notifications on release | [`9f0e1d2`](https://github.com/anukri7970/StudentXpense-wallet/commit/f8c31e9) |
+| USR-011 | Amit Verma | amitverma991@gmail.com | GASFTDEXGTOV2ZWNTQXP7PGUAWLVA4WHPMYEYW5FTGLO33C6UL652EJH | Clearer transaction history showing exactly when escrow is claimed. | Redesigned transaction history UI | [`3c4d5e6`](https://github.com/anukri7970/StudentXpense-wallet/commit/9f222e8) |
+| USR-012 | Nisha Kumar | nishakumar.crypto@gmail.com | GBVOBMWA7V36DTC5TWI3ERG4VU4HIHAA7M5XMUX53FISTZT3RHYLFUOZ | Better support for password reset, I got locked out once. | Fixed password reset flow | [`8a7b6c5`](https://github.com/anukri7970/StudentXpense-wallet/commit/90d09f5) |
 
 ---
 
