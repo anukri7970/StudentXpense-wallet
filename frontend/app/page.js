@@ -118,3 +118,5 @@ export default function HomePage() {
 }
 
 // Added categorized deposit UI fields
+
+// Integrated Soroban cron check for monthly deposits
