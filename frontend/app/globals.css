@@ -85,3 +85,5 @@ body {
   font-family: var(--font-plex-mono), monospace;
   font-feature-settings: 'tnum' 1;
 }
+
+/* Support for dark mode variables */
