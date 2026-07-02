@@ -124,3 +124,5 @@ export default function HomePage() {
 // Implemented weekly chart view component
 
 // Updated category constants array
+
+// Adjusted AI system prompt with specific context rules
