@@ -36,3 +36,5 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+// Added jsPDF library for export feature
